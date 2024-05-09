@@ -2,6 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import { Popover, MenuItem } from '@mui/material';
 import IconButton from "@mui/material/IconButton";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -18,6 +19,19 @@ import "./styles.css";
 export default function NavBar() {
   const [open, setOpen] = React.useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const opeN = Boolean(anchorEl);
+
+
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -324,26 +338,46 @@ export default function NavBar() {
               />
             </Box>
             <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls="primary-search-account-menu"
-              aria-haspopup="true"
-              color="inherit"
-              sx={{ mr: "50px" }}
-            >
-              <img
-                src="uk.jpg"
-                alt=""
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  boxShadow: "0px 0px 8px 2px rgba(255, 0, 0, 0.2)",
-                  border: "solid,white",
-                }}
-              />
-            </IconButton>
+        size="large"
+        edge="end"
+        aria-label="account of current user"
+        aria-controls="primary-search-account-menu"
+        aria-haspopup="true"
+        color="inherit"
+        sx={{ mr: "50px" }}
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+      >
+        <img
+          src="uk.jpg"
+          alt=""
+          style={{
+            width: "60px",
+            height: "60px",
+            borderRadius: "50%",
+            boxShadow: "0px 0px 8px 2px rgba(255, 0, 0, 0.2)",
+            border: "solid white",
+          }}
+        />
+      </IconButton>
+      <Popover
+      sx={{
+       borderRadius:"0"
+      }}
+  open={opeN}
+  anchorEl={anchorEl}
+  anchorReference="anchorPosition" // Use anchorPosition for fixed positioning
+  anchorPosition={{ top: 175, left: window.innerWidth - 150 }} // Adjust position as needed
+  onClose={handlePopoverClose}
+  
+  onMouseEnter={handlePopoverOpen}
+  onMouseLeave={handlePopoverClose}
+>
+  <MenuItem sx={{ borderTop:"5px solid #647589"}} onClick={handlePopoverClose}>USA</MenuItem>
+  <MenuItem onClick={handlePopoverClose}>UK</MenuItem>
+  <MenuItem onClick={handlePopoverClose}>CA</MenuItem>
+  <MenuItem onClick={handlePopoverClose}>AU</MenuItem>
+</Popover>
           </Box>
           <Box
             sx={{
