@@ -6,6 +6,7 @@ import OurTeam from "../components/OurTeam";
 import Ads from "../components/Ads";
 import OurPlans from "../components/OurPlans";
 import MoveUpBtn from '../components/MoveUpBtn';
+import Consultant from "../components/Consultant";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <OurTeam />
       <Ads />
       <OurPlans/>
+      <Consultant/>
       <MoveUpBtn/>
       </div>
   );
