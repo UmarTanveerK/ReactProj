@@ -43,7 +43,7 @@ export default function NavBar() {
 
   const DrawerList = (
     <Box
-      sx={{ width: 250, bgcolor: "#22314b", px: "40px", height: "100vh" }}
+      sx={{ width: 250, bgcolor: "#22314b", px: "40px", height: "100%" }}
       role="presentation"
     >
       <CloseIcon

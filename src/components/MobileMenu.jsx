@@ -64,7 +64,6 @@ const MobileMenu = ({ menuItems, menuName }) => {
               zIndex: 100000,
               color: "black",
               textDecoration: "none",
-              listStyle: "none",
             }}
           >
             <ul
