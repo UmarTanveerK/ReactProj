@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,31 +12,15 @@ import HoverMenu from "./HoverMenu";
 import Drawer from "@mui/material/Drawer";
 import MobileMenu from "./MobileMenu";
 import CloseIcon from "@mui/icons-material/Close";
-import "./styles.css";
 
 export default function NavBar() {
   const [open, setOpen] = React.useState(false);
-  const [isSticky, setIsSticky] = useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isTop = window.scrollY < 200;
-      setIsSticky(!isTop);
-    };
 
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const navBarClasses = isSticky ? "sticky visible" : ""; // Apply appropriate classes
 
   const DrawerList = (
     <Box
@@ -119,11 +102,8 @@ export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position={isSticky ? "fixed" : "static"}
-        className={navBarClasses}
+        position="static"
         sx={{
-          transition: "all 0.9s ease-in-out", // Ensure transition property is set
-          opacity: 1,
           bgcolor: "white", // Initially set opacity based on isSticky
         }}
       >
