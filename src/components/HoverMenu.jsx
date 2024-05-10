@@ -4,16 +4,19 @@ import "./styles.css";
 
 const HoverMenu = ({ menuItems, menuName }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
   const menuRef = useRef(null);
 
   const handleMouseEnter = () => {
     setIsMenuVisible(true);
+    setIsSubMenuVisible(true);
   };
 
   const handleMouseLeave = (e) => {
     // Check if the mouse is over the menu or the menu name
     if (!menuRef.current.contains(e.relatedTarget)) {
       setIsMenuVisible(false);
+      setIsSubMenuVisible(false); // Hide submenu on menu leave
     }
   };
 
@@ -62,7 +65,7 @@ const HoverMenu = ({ menuItems, menuName }) => {
             textAlign: "left",
             color: "#647589",
             fontWeight: "600",
-            display: "block",
+            display: isSubMenuVisible ? "block" : "none",
             fontSize: "14px",
           }}
         >
