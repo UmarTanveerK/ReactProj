@@ -7,7 +7,7 @@ import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
 const News = () => {
   return (
-    <Grid sx={{ px: "100px", position: "relative" ,pb:"100px" }}>
+    <Grid sx={{ px: "100px", position: "relative" ,pb:"100px" , height:"1300px" }}>
       <Grid
         sx={{
           display: "flex",
@@ -114,7 +114,7 @@ const News = () => {
       <IconButton
         sx={{
             position: "absolute",
-            bottom: "-100px",
+            bottom: "0px",
             right: "150px",
           mt: "50px",
           display: { md: "flex", sm: "none", xs: "none" },

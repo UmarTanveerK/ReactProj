@@ -8,6 +8,7 @@ import OurPlans from "../components/OurPlans";
 import MoveUpBtn from '../components/MoveUpBtn';
 import Consultant from "../components/Consultant";
 import News from "../components/News";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <OurPlans/>
       <Consultant/>
       <News/>
+      <Footer/>
       <MoveUpBtn/>
       </div>
   );
