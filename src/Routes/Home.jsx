@@ -7,6 +7,7 @@ import Ads from "../components/Ads";
 import OurPlans from "../components/OurPlans";
 import MoveUpBtn from '../components/MoveUpBtn';
 import Consultant from "../components/Consultant";
+import News from "../components/News";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Ads />
       <OurPlans/>
       <Consultant/>
+      <News/>
       <MoveUpBtn/>
       </div>
   );
